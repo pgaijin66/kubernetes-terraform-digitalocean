@@ -6,7 +6,7 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
   name   = var.cluster_name
   region = var.cluster_region
   # Grab the latest version slug from `doctl kubernetes options versions`
-  auto_upgrade = true
+  auto_upgrade = var.auto_upgrade
   version      = data.digitalocean_kubernetes_versions.version.latest_version
 
   maintenance_policy {
