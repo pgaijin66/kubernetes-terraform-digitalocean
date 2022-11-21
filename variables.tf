@@ -18,3 +18,15 @@ variable "auto_upgrade" {
   description = "Auto upgrade"
 }
 
+variable "node_size" {
+  type = string
+  description = "Size of each node in a node pool"
+}
+
+variable "node_count" {
+  type = number
+  description = "number of nodes in each node pool"
+}
+
+
+
