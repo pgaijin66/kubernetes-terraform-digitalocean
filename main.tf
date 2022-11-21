@@ -2,9 +2,9 @@
 data "digitalocean_kubernetes_versions" "version" {}
 
 
-resource "digitalocean_kubernetes_cluster" "sfo3" {
-  name   = "doks-sof3"
-  region = "sfo3"
+resource "digitalocean_kubernetes_cluster" "cluster" {
+  name   = var.cluster_name
+  region = var.cluster_region
   # Grab the latest version slug from `doctl kubernetes options versions`
   auto_upgrade = true
   version      = data.digitalocean_kubernetes_versions.version.latest_version
@@ -16,8 +16,8 @@ resource "digitalocean_kubernetes_cluster" "sfo3" {
 
   node_pool {
     name       = "frontend-pool"
-    size       = "s-1vcpu-2gb"
-    node_count = 1
+    size       = var.node_size
+    node_count = var.node_count
     tags       = ["frontend"]
 
     labels = {
@@ -34,11 +34,11 @@ resource "digitalocean_kubernetes_cluster" "sfo3" {
 }
 
 resource "digitalocean_kubernetes_node_pool" "backend_pool" {
-  cluster_id = digitalocean_kubernetes_cluster.sfo3.id
+  cluster_id = digitalocean_kubernetes_cluster.cluster.id
 
   name       = "backend-pool"
-  size       = "s-1vcpu-2gb"
-  node_count = 1
+  size       = var.node_size
+  node_count = var.node_count
   tags       = ["backend"]
 
   labels = {
