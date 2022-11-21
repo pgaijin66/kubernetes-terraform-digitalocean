@@ -17,8 +17,13 @@ export TF_VAR_do_token="ASAS...REDACTED"
 ```
 # Digital Ocean Kubernetes Service ( DOKS )
 module "doks" {
-  source            = "git@github.com:pgaijin66/kubernetes-terraform-digitalocean.git"
-  do_token          = var.do_token
+  source            = "github.com/pgaijin66/kubernetes-terraform-digitalocean"
+  do_token = var.do_token
+  cluster_name = "doks_sfo3"
+  cluster_region = "sfo3"
+  auto_upgrade = true
+  node_size = "s-1vcpu-2gb"
+  node_count = 1
 }
 ```
 
