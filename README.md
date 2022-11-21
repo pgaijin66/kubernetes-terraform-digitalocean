@@ -19,7 +19,7 @@ export TF_VAR_do_token="ASAS...REDACTED"
 module "doks" {
   source            = "github.com/pgaijin66/kubernetes-terraform-digitalocean"
   do_token = var.do_token
-  cluster_name = "doks_sfo3"
+  cluster_name = "doks-sfo3"  # Should be cluster spec friendly
   cluster_region = "sfo3"
   auto_upgrade = true
   node_size = "s-1vcpu-2gb"
