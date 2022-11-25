@@ -24,6 +24,12 @@ module "doks" {
   auto_upgrade = true
   node_size = "s-1vcpu-2gb"
   node_count = 1
+  maintenance_start_time = "04:00"
+  maintenance_day = "sunday"
+  owner = "sthapaprabesh2020@gmail.com"
+  env = "dev"
+  business_unit = "SRE"
+  managed_by = "Terraform"
 }
 ```
 
