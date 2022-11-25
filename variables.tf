@@ -14,7 +14,6 @@ variable "cluster_region" {
 }
 
 variable "auto_upgrade" {
-  default = false
   type = bool
   description = "Auto upgrade"
 }
@@ -25,22 +24,36 @@ variable "node_size" {
 }
 
 variable "node_count" {
-  default = 1
   type = number
   description = "number of nodes in each node pool"
 }
 
 variable "maintenance_start_time" {
-  default = "04:00"
   type = string
   description = "Time of the days where maintenance work can be done"
 }
 
 variable "maintenance_day" {
-  default = "sunday"
   type = string
   description = "Day of the week where maintenance work can be done"
 }
 
+variable "owner" {
+  type = string
+  description = "owner of the project"
+}
+
+variable "managed_by" {
+  type = string
+  description = "code managed by"
+}
+variable "env" {
+  type = string
+  description = "Environment"
+}
+variable "business_unit" {
+  type = string
+  description = "business unit that the project is related to"
+}
 
 
