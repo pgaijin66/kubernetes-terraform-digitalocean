@@ -15,13 +15,13 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
   }
 
   node_pool {
-    name       = "frontend-pool"
+    name       = "nodepool-1"
     size       = var.node_size
     node_count = var.node_count
-    tags       = ["frontend"]
+    tags       = ["nodepool-1"]
 
     labels = {
-      service  = "frontend"
+      service  = "nodepool-1"
       priority = "high"
     }
 
@@ -33,16 +33,16 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
   }
 }
 
-resource "digitalocean_kubernetes_node_pool" "backend_pool" {
+resource "digitalocean_kubernetes_node_pool" "node_pool_2" {
   cluster_id = digitalocean_kubernetes_cluster.cluster.id
 
-  name       = "backend-pool"
+  name       = "nodepool-2"
   size       = var.node_size
   node_count = var.node_count
-  tags       = ["backend"]
+  tags       = ["nodepool-2"]
 
   labels = {
-    service  = "backend"
+    service  = "nodepool-2"
     priority = "high"
   }
 

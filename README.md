@@ -35,7 +35,7 @@ module "doks" {
 Importing and running the terraform code will result in following
 
 1. A kubernetes cluster in digital ocean
-2. Two node pool : frontend and backend
+2. Two node pool : nodepool-1 and nodepool-2
 3. One node in each pool
-4. Cluster auto upgrade enabled
-5. Maintenance timeslot defined to every week at "4:00AM" on Sunday ( This can be overrided )
+4. Auto upgrade
+5. Maintenance timeslot defined to every week at "4:00AM" on Sunday
